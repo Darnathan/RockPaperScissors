@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    /*A function that randoms computers choice*/
+    function computerPlay() {
+        const computerChoices = ["Rock", "Paper", "Scissors"];
+        let computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        return computerChoice;
+    }
+    /* A Function that asks the user for a a choice*/
+    function playerChoice() {
+        playerSelection = prompt("Rock, Paper or Scissors? ")
+        return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+    }
+    /* a function that plays the round and compares user choice with computer 
+    choice and declares a winner*/
+    function playRound(playerSelection, computerChoice) {
+        if (playerSelection == computerChoice) {
+            return draw += 1;
+        } else if (playerSelection == "Rock" && computerChoice == "Paper") {
+            return Computerscore += 1;
+        } else if (playerSelection == "Paper" && computerChoice == "Scissors") {
+            return Computerscore += 1;
+        } else if (playerSelection == "Scissors" && computerChoice == "Rock") {
+            return Computerscore += 1;
+        } else {
+            return playerScore += 1;
+        }
+    }
+    function game() {
+        let draw= 0;
+        let rounds = 0;
+        let Computerscore = 0;
+        let playerScore = 0;
+        while (rounds <= 5) {
+            playerChoice();
+            computerPlay();
+            playRound(playerSelection, computerChoice);
+            rounds += 1;
+        }
+        if (Computerscore < playerScore) {
+            return window.prompt("You win! " + playerScore + " - " + Computerscore)
+        } else {
+            return window.prompt("You lose! " + playerScore + " - " + Computerscore)
+        }
+    }
+    </script>
+</body>
+</html>
