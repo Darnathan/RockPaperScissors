@@ -8,47 +8,70 @@
 </head>
 <body>
     <script> 
+    let playerS = 0;
+    let computerS = 0;
+    let rounds = 0;
     /*A function that randoms computers choice*/
     function computerPlay() {
         const computerChoices = ["Rock", "Paper", "Scissors"];
         let computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         return computerChoice;
     }
-    /* A Function that asks the user for a a choice*/
+    /* A Function that asks the user for a a choice and turns it to lowercase and 
+    changes first letter to capitalised*/
     function playerChoice() {
         playerSelection = prompt("Rock, Paper or Scissors? ")
         return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     }
     /* a function that plays the round and compares user choice with computer 
-    choice and declares a winner*/
+    choice and declares a winner or Draw*/
     function playRound(playerSelection, computerChoice) {
-        if (playerSelection == computerChoice) {
-            return draw += 1;
+        if (playerSelection === computerChoice) {
+            return draw = "DRAW";
         } else if (playerSelection == "Rock" && computerChoice == "Paper") {
-            return Computerscore += 1;
+            return computerScore = "LOSE";
         } else if (playerSelection == "Paper" && computerChoice == "Scissors") {
-            return Computerscore += 1;
+            return computerScore = "LOSE";
         } else if (playerSelection == "Scissors" && computerChoice == "Rock") {
-            return Computerscore += 1;
+            return computerScore = "LOSE";
         } else {
-            return playerScore += 1;
+            return playerScore = "WIN";
         }
     }
+    /* a function that plays 5 rounds and declares a winner at the end
+    it also prompts the scores*/
     function game() {
-        let draw= 0;
-        let rounds = 0;
-        let Computerscore = 0;
-        let playerScore = 0;
-        while (rounds <= 5) {
-            playerChoice();
-            computerPlay();
-            playRound(playerSelection, computerChoice);
-            rounds += 1;
-        }
-        if (Computerscore < playerScore) {
-            return window.prompt("You win! " + playerScore + " - " + Computerscore)
+        while (rounds <= 4) {
+            computerScore = "";
+            playerScore = "";
+            draw= 0;
+            let player = playerChoice();
+            let computer = computerPlay();
+            rounds ++;
+            playRound(player, computer);
+            if (playerScore == "WIN") {
+                 window.alert("You WIN!" + " " + player + " " + computer +" "+ rounds + " " + playerScore + " " + computerScore)
+            } else if (draw == "DRAW") {
+                 window.alert("DRAW" + " " + player + " " + computer +" "+ rounds + " " + playerScore + " " + computerScore)
+            } else {
+                window.alert("You Lose! " +  player + " " + computer +" "+ rounds + " " + playerScore + " " + computerScore)
+            }
+            if (computerScore == "LOSE" ) {
+                 computerS ++;
+            } else if (playerScore == "WIN") {
+                 playerS ++;
+            } else {
+                 draw ++;
+            }
+            }
+
+        
+        if (computerS < playerS) {
+            return window.alert("You win! " + playerS + " - " + computerS + " draws " + draw)
+        } else if (computerS > playerS) {
+            return window.alert("You lose! " + playerS + " - " + computerS + " draws " + draw)
         } else {
-            return window.prompt("You lose! " + playerScore + " - " + Computerscore)
+            return window.alert("It's a DRAW " + playerS + " - " + computerS)
         }
     }
     </script>
