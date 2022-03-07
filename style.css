@@ -1,0 +1,57 @@
+html {
+}
+
+body {
+  background-color: rgb(228, 189, 17);
+}
+button:hover {
+  color: goldenrod;
+  background-color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+button {
+  --c: rgb(2, 2, 2);
+  color: var(--c);
+  font-size: 16px;
+  border: 0.3em solid var(--c);
+  border-radius: 0.5em;
+
+  letter-spacing: 0.1em;
+  line-height: 3em;
+
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.3s;
+  margin: 1em;
+}
+.selections {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result {
+  font-size: 1.7rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+.result-score {
+  opacity: 0.7;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.result-selection {
+  font-size: 1rem;
+  gap: 1rem;
+  opacity: 0.5;
+}
+
+.result-selection.winner {
+  opacity: 1;
+  font-size: 1.5rem;
+}

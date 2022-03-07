@@ -1,79 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <script> 
-    let playerS = 0;
-    let computerS = 0;
-    let rounds = 0;
-    /*A function that randoms computers choice*/
-    function computerPlay() {
-        const computerChoices = ["Rock", "Paper", "Scissors"];
-        let computerChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        return computerChoice;
-    }
-    /* A Function that asks the user for a a choice and turns it to lowercase and 
-    changes first letter to capitalised*/
-    function playerChoice() {
-        playerSelection = prompt("Rock, Paper or Scissors? ")
-        return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-    }
-    /* a function that plays the round and compares user choice with computer 
-    choice and declares a winner or Draw*/
-    function playRound(playerSelection, computerChoice) {
-        if (playerSelection === computerChoice) {
-            return draw = "DRAW";
-        } else if (playerSelection == "Rock" && computerChoice == "Paper") {
-            return computerScore = "LOSE";
-        } else if (playerSelection == "Paper" && computerChoice == "Scissors") {
-            return computerScore = "LOSE";
-        } else if (playerSelection == "Scissors" && computerChoice == "Rock") {
-            return computerScore = "LOSE";
-        } else {
-            return playerScore = "WIN";
-        }
-    }
-    /* a function that plays 5 rounds and declares a winner at the end
-    it also prompts the scores*/
-    function game() {
-        while (rounds <= 4) {
-            computerScore = "";
-            playerScore = "";
-            draw= 0;
-            let player = playerChoice();
-            let computer = computerPlay();
-            rounds ++;
-            playRound(player, computer);
-            if (playerScore == "WIN") {
-                 window.alert("You WIN!" + " " + player + " " + computer +" "+ rounds + " " + playerScore + " " + computerScore)
-            } else if (draw == "DRAW") {
-                 window.alert("DRAW" + " " + player + " " + computer +" "+ rounds + " " + playerScore + " " + computerScore)
-            } else {
-                window.alert("You Lose! " +  player + " " + computer +" "+ rounds + " " + playerScore + " " + computerScore)
-            }
-            if (computerScore == "LOSE" ) {
-                 computerS ++;
-            } else if (playerScore == "WIN") {
-                 playerS ++;
-            } else {
-                 draw ++;
-            }
-            }
+    <div class="selections">
+        <button class="selection" data-selection="rock">Rock</button>
+        <button class="selection" data-selection="paper">Paper</button>
+        <button class="selection" data-selection="scissors">Scissors</button>
+    </div>
+    <div class="result">
+        <div>You
+        <span class="result-score" data-your-score>0</span>
+    </div>
+        <div data-final-column>Computer
+        <span class="result-score" data-computer-score>0</span>
+    </div>
+    <!-- <div class= "result-selection winner">YOU WIN</div>
+    <div class= "result-selection">YOU LOSE</div>-->
+    </div>
+</div>
 
-        
-        if (computerS < playerS) {
-            return window.alert("You win! " + playerS + " - " + computerS + " draws " + draw)
-        } else if (computerS > playerS) {
-            return window.alert("You lose! " + playerS + " - " + computerS + " draws " + draw)
-        } else {
-            return window.alert("It's a DRAW " + playerS + " - " + computerS)
-        }
-    }
-    </script>
+
 </body>
 </html>
